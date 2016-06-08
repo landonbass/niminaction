@@ -1,0 +1,8 @@
+
+*
+!*/
+!*.*
+/bin
+**/nimcache
+.DS_Store
+**/*.db
