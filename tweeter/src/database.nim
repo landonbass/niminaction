@@ -85,7 +85,7 @@ proc findMessages*(database: Database, usernames: seq[string], limit = 10) : seq
         if i != <usernames.len:
             whereClause.add("or ")
 
-    let messages = database.db.getAllRows(sql("SELECT username, time, msg FROM Message" & whereClause & "ORDER BY time LIMIT " & $limit), usernames)
+    let messages = database.db.getAllRows(sql("SELECT username, time, msg FROM Message" & whereClause & "ORDER BY time DESC LIMIT " & $limit), usernames)
 
     for row in messages:
         result.add(Message(username: row[0], time: fromSeconds(row[1].parseInt), msg: row[2]))    
