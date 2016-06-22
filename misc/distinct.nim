@@ -16,19 +16,10 @@ proc `-`  (a, b: C)        : C      {.borrow.}
 proc `$`  (a:    C)        : string {.borrow.}
 proc `==` (a, b: C)        : bool   {.borrow.}
 
-converter toC (f: float) : C = f.C
-#converter toC (f: F)     : C = (f - 32) * 5/9
-#converter toF (c: C) : F = c * (9/5) + 32
-
-let d1 = 100.F
-let d2 = 25.C
+let d1 : F = 100.F
+let d2 : C = 25.C
 
 let d3 = d1 + 10.F
 
 assert(d3 == 110.F)
-
-echo $d3
-
 assert(d2 == (5.C * 5.C))
-echo $(d1.C)
-
