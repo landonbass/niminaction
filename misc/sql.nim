@@ -1,6 +1,6 @@
 #prevent sql injection
 
-import strutils, sequtils
+import strutils, sequtils, db_sqlite
 
 type
     SQL = distinct string
@@ -21,6 +21,7 @@ let username = "'bobbytables'; drop table users;--" #looks like ' is not handled
 
 echo $(sql % [username])
 
+echo dbQuote(username) #this does handle '
 
 
 
