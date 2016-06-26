@@ -11,7 +11,7 @@ proc parseMessage* (data: string) : Message =
     result.username = dataJson["username"].getStr()
     result.message  = dataJson["message"].getStr()
 
-proc createMessage*(isername, message: string) : string =
+proc createMessage*(username, message: string) : string =
     result = $(%{
         "username": %username,
         "message" : %message
