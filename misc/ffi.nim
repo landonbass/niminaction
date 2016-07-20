@@ -1,6 +1,6 @@
 
-#proc printf(format: cstring): cint {.importc, varargs.}
-#discard printf("my name is %s and I am %d years old.\n", "Landon", 33)
+proc printf(format: cstring): cint {.importc, varargs.}
+discard printf("my name is %s and I am %d years old.\n", "Landon", 33)
 
 type
     CTime = int64
@@ -17,5 +17,7 @@ proc localtime(time: ptr CTime): ptr TM {.importc, header:"<time.h>".}
 var seconds = time(nil)
 let tm = localtime(addr seconds)
 
-echo(tm.tm_hour, ":", tm.tm_min)
+#cannot use echo if you define printf
+#echo(tm.tm_hour, ":", tm.tm_min)
 
+discard printf("%d:%d\n", tm.tm_hour, tm.tm_min)
