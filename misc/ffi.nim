@@ -1,6 +1,5 @@
 
 proc printf(format: cstring): cint {.importc, varargs.}
-discard printf("my name is %s and I am %d years old.\n", "Landon", 33)
 
 type
     CTime = int64
@@ -20,4 +19,5 @@ let tm = localtime(addr seconds)
 #cannot use echo if you define printf
 #echo(tm.tm_hour, ":", tm.tm_min)
 
+discard printf("my name is %s and I am %d years old.\n", "Landon", 33)
 discard printf("%d:%d\n", tm.tm_hour, tm.tm_min)
