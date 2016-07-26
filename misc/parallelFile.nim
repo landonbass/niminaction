@@ -10,13 +10,13 @@ proc enumerableRepeat[T](value: T, n: int = -1): iterator(): T =
 
 proc writeFile[T](filePath: string, iter: iterator():T) =
     var file = open(filePath, mode=fmWrite)
-    for str in iter(): file.writeLine(str)
+    for str in iter(): file.write(str)
     file.close()
 
 var w = ["aaa", "bbb", "ccc"]
 var startTime = epochTime()
 parallel:
     for i, str in w:
-        spawn writeFile("dict" & $i & ".dat", enumerableRepeat(str, 3_000_000))
+        spawn writeFile("dict" & $i & ".dat", enumerableRepeat(str & "\n", 3_000_000))
 
 echo "time: ", epochTime() - startTime, "seconds"
