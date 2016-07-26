@@ -6,3 +6,5 @@
 **/nimcache
 .DS_Store
 **/*.db
+
+**/*.dat
