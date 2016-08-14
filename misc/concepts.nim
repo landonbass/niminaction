@@ -11,6 +11,18 @@ type
 
     p = tuple[x, y: int]
 
+type Countable = concept c
+    inc c
+    dec c
+
+proc countableEx(a: Countable) : Countable =
+    result = a
+    inc result
+    inc result
+    dec result
+
+echo countableEx(2)
+
 let x : p = (x:1, y:2)
 let a = [1,2,3]
 
