@@ -11,6 +11,8 @@ type
 
     p = tuple[x, y: int]
 
+
+
 type Countable = concept c
     inc c
     dec c
