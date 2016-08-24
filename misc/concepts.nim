@@ -34,3 +34,10 @@ echo p is Container            #false
 echo x is Container            #false
 echo a is Container            #true
 
+proc countableGeneric[T](a: T) : T =
+    result = a
+    inc result
+    inc result
+    dec result
+
+echo countableGeneric('a')
