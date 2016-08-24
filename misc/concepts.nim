@@ -41,3 +41,4 @@ proc countableGeneric[T](a: T) : T =
     dec result
 
 echo countableGeneric('a')
+echo countableGeneric(3)
