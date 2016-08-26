@@ -16,3 +16,12 @@ template declareVar(varName: untyped, value: typed) : untyped =
 
 declareVar(foo, 42)
 echo foo
+
+template hygiene(varName: untyped) : untyped =
+    var varName = 42
+    var notInjected = 100
+    var injected {.inject.} = notInjected + 2
+
+hygiene(injectedImplicitly)
+doAssert(injectedImplicitly == 42)
+doAssert(injected == 102)
