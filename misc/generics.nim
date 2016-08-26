@@ -1,5 +1,5 @@
 
-proc max[T](a, b: T) : T =
+proc max[T: int | float](a, b: T) : T =
     if a < b:
         return b
     return a
