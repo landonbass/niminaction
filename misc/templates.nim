@@ -7,6 +7,12 @@ template repeat(statements: untyped): untyped =
 var i: int= 0
 repeat:
     echo i
+    if i > 2: break
     sleep(1000)
     inc i
 
+template declareVar(varName: untyped, value: typed) : untyped =
+    var varName = value
+
+declareVar(foo, 42)
+echo foo
