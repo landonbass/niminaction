@@ -1,5 +1,9 @@
 
-proc max[T: int | float](a, b: T) : T =
+
+type
+    Maxable = int | float | uint
+
+proc max[T: Maxable](a, b: T) : T =
     if a < b:
         return b
     return a
