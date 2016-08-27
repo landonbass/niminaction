@@ -9,3 +9,8 @@ proc f1() {.addEcho.} =
     echo i
 
 f1()
+
+dumpTree:
+    5 * (5 + 10)
+
+    
