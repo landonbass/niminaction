@@ -13,4 +13,20 @@ f1()
 dumpTree:
     5 * (5 + 10)
 
-    
+static:
+    var root = newStmtList (
+        infix (
+            newIntLitNode(5),
+            "*",
+            newPar(
+                infix(
+                    newIntLitNode(5),
+                    "+",
+                    newIntLitNode(10)
+                )
+            )
+        )
+    )
+
+    echo root.repr
+
