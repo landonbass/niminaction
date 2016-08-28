@@ -31,7 +31,7 @@ static:
     echo root.repr
 
 macro calculate(): untyped =
-    result = newStmtList (
+    result =
         infix (
             newIntLitNode(5),
             "*",
@@ -43,6 +43,5 @@ macro calculate(): untyped =
                 )
             )
         )
-    )
 
 echo calculate()
