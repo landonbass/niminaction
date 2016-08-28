@@ -30,3 +30,19 @@ static:
 
     echo root.repr
 
+macro calculate(): untyped =
+    result = newStmtList (
+        infix (
+            newIntLitNode(5),
+            "*",
+            newPar(
+                infix(
+                    newIntLitNode(5),
+                    "+",
+                    newIntLitNode(10)
+                )
+            )
+        )
+    )
+
+echo calculate()
