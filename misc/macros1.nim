@@ -45,3 +45,10 @@ macro calculate(): untyped =
         )
 
 echo calculate()
+
+macro arguments(number: int, unknown: untyped): untyped =
+    result = newStmtList()
+    echo number.treeRepr()
+    echo unknown.treeRepr()
+
+arguments(11, ["a", "b"])
