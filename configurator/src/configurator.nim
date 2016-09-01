@@ -9,3 +9,10 @@ config MyAppConfig:
     address: string
     port   : int
 
+dumpTree:
+    type 
+        MyAppConfig = ref object
+            address: string
+            port: int
+
+            
