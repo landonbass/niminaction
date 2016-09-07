@@ -31,3 +31,15 @@ proc createRefType(ident: NimIdent, identDefs: seq[NimNode]): NimNode =
             )
         )
     ))
+
+proc toIdentDefs(stmtList: NimNode): seq[NimNode] =
+    expectKind(stmtList, nnkStmtList)
+    result = @[]
+    for child in stmtList:
+        expectKind(child, nnkCall)
+        result.add(
+            newIdentDefs(
+                child[0],
+                child[1][0]
+            )
+        )
