@@ -1,19 +1,5 @@
 import macros
 
-macro config(typeName: untyped, fields: untyped): untyped =
-    result = newStmtList()
-    echo treeRepr(typeName)
-    echo treeRepr(fields)
-
-config MyAppConfig:
-    address: string
-    port   : int
-
-dumpTree:
-    type 
-        MyAppConfig = ref object
-            address: string
-            port: int
 
 
 proc createRefType(ident: NimIdent, identDefs: seq[NimNode]): NimNode =
@@ -43,3 +29,22 @@ proc toIdentDefs(stmtList: NimNode): seq[NimNode] =
                 child[1][0]
             )
         )
+   
+
+macro config(typeName: untyped, fields: untyped): untyped =
+    result = newStmtList()
+    let identDefs = toIdentDefs(fields)
+    result.add createRefType(typeName.ident, identDefs)
+    echo treeRepr(typeName)
+    echo treeRepr(fields)
+    echo treeRepr(result)
+    
+config MyAppConfig:
+    address: string
+    port   : int
+
+dumpTree:
+    type 
+        MyAppConfig = ref object
+            address: string
+            port: int
