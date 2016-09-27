@@ -30,6 +30,9 @@ proc toIdentDefs(stmtList: NimNode): seq[NimNode] =
             )
         )
    
+template constructor(ident: untyped) : untyped =
+    proc `new ident`(): `ident` =
+        new result
 
 macro config(typeName: untyped, fields: untyped): untyped =
     result = newStmtList()
@@ -48,3 +51,11 @@ dumpTree:
         MyAppConfig = ref object
             address: string
             port: int
+
+proc newMyAppConfig() : MyAppConfig =
+    new result
+
+proc load*(cfg: MyAppConfig, filename: string) =
+    var obj     = parseFile(filename)
+    cfg.address = obj["address"].getStr
+    cfg.port    = obj["port"].getNum.int
