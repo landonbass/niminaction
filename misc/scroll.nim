@@ -16,3 +16,6 @@ proc scroll[T](a: var openarray[T]; d : int) =
 var a = [1,2,3]
 scroll(a, 1)
 echo a[0]
+echo a[1]
+echo a[2]
+
