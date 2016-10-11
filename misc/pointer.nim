@@ -22,3 +22,6 @@ a = a + -1
 echo a[]
 a = a - 1
 echo a[]
+
+var newp = cast[uint](cast[uint](a) + 1u)
+echo newp

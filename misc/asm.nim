@@ -11,3 +11,4 @@ proc addInt(a, b: int) : int =
 {.pop.}
 
 echo addInt(2, 3) #errors
+
