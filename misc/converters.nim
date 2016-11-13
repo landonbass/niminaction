@@ -24,3 +24,14 @@ let task2 = Task(Status: TaskStatus.Inactive, Title: "task 2")
 
 if task1: echo "task1 is valid"
 if task2: echo "task2 is valid"
+
+type
+    Element = enum
+        A 
+        B 
+        C 
+
+converter toInt*(x:Element) : int = x.int
+var data = [1,2,3]
+
+echo data[B.int]
